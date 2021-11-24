@@ -50,7 +50,7 @@ int main(void){
 		printf("\n\tID: %s \n\tNombre:%s %s %s", profesor.numeroEmpleado, profesor.datos_profesor.nombre, profesor.datos_profesor.apPaterno, profesor.datos_profesor.apMaterno);   
 	}else if(op == 2){
 		getchar();
-		printf("Dame número empleado: ");
+		printf("Dame número de cuenta: ");
 		fflush(stdin);
 		fgets(estudiante.numeroCuenta,13,stdin);
 		printf("Dame nombre: ");
