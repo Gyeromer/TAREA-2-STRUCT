@@ -6,19 +6,19 @@
    Meter arreglos
 */
 
-void main(){
+int main(){
 
 	struct info{
 	char nombre[25];
 	char apPaterno[25];
 	char apMaterno[25];
 	char direccion[25];
-};
+	};
 
 struct academico{
 	char numeroEmpleado[13];
-	struct info datos_profesor;
-}profesor; 
+	struct info datos_profesor[10];
+}profesor[10]; 
 
 struct alumnado{
 	char numeroCuenta[13];
@@ -39,23 +39,23 @@ struct alumnado{
 	puts("\t3.-Salir");
 	scanf("%d", &op);
 	
-for(i=1;i<=reg;i++){
+for(int i=0;i<reg;i++){
 		switch(op){
 		case 1:
 			printf("Dame numero del empleado: ");
 			fflush(stdin);
-			fgets(profesor.numeroEmpleado,13,stdin);
+			fgets(profesor[i].numeroEmpleado, 13,stdin);
 			printf("Dame nombre: ");
 			fflush(stdin);
-			fgets(profesor.datos_profesor.nombre, 25, stdin);   
+			fgets(profesor[i].datos_profesor[i].nombre, 25, stdin);   
 			printf("Dame apellido paterno: ");
 			fflush(stdin);
-			fgets(profesor.datos_profesor.apPaterno, 25, stdin);
+			fgets(profesor[i].datos_profesor[i].apPaterno, 25, stdin);
 			printf("Dame apellido materno: ");
 			fflush(stdin);
-			fgets(profesor.datos_profesor.apMaterno, 25, stdin);
+			fgets(profesor[i].datos_profesor[i].apMaterno, 25, stdin);
 			puts("--------------------");
-			printf("\n\tID: %s Nombre: %s %s %s", profesor.numeroEmpleado, profesor.datos_profesor.nombre, profesor.datos_profesor.apPaterno, profesor.datos_profesor.apMaterno);   	
+		//	printf("\n\tID: %s Nombre: %s %s %s", profesor.numeroEmpleado, profesor.datos_profesor.nombre, profesor.datos_profesor.apPaterno, profesor.datos_profesor.apMaterno);   	
 			break;
 		case 2:
 			printf("Promedio del alumno: ");
@@ -85,4 +85,11 @@ for(i=1;i<=reg;i++){
 {
 
 }
+	printf("\n--------------------------------------\n");
+	printf("Imprimiendo Profesores\n");
+	for (int i=0; i<reg; i++){
+		printf("\n\tID: %s \tNombre: %s \tApPaterno:  %s \tApMaterno:%s", profesor[i].numeroEmpleado, profesor[i].datos_profesor[i].nombre, profesor[i].datos_profesor[i].apPaterno, profesor[i].datos_profesor[i].apMaterno);   	
+	}
+	printf("\n--------------------------------------\n");
+	return 0;
 }
